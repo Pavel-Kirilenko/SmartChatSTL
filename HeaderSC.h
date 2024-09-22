@@ -1,5 +1,7 @@
 ﻿#pragma once
 #include <string>
+#include <map>
+#include <vector>
 
 using namespace std;
 
@@ -17,7 +19,20 @@ public:
     void initPersMessage(string persName);
 };
 
-// 29.08.2024 by Pavel Kirilenko
+class Chat
+{
+    map <string, string> persArray;               // массив с данными пользователей
+    vector<PersMessage> messArray;                // массив с сообщениями
+public:
+    void entrChat(bool& persPresence, string& curName, string& curPassWord);     // войти в чат
+	void regChat(bool& nameInChatAlready, bool& persPresence, string& curName, string& curPassWord);    // зарегистрироваться в чате
+    bool ifEmpty();                               // если в массиве есть сообщения
+    void showMess(string curName);                // показать сообщения
+    void delMess();                               // удалить сообщение
+    void sendMess(string curName);                // отправить сообщение
+};
+
+// 21.09.2024 by Pavel Kirilenko
 
 
 
